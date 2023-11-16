@@ -23,6 +23,18 @@ const createDeck = () => {
     }
 
     deck = _.shuffle(deck);
+    return deck;
 };
 
 createDeck();
+
+const takeCard = () => {
+    if (deck.length === 0) {
+        throw 'Deck is empty';
+    }
+
+    const card = deck.pop();
+    return card;
+}
+
+takeCard();
