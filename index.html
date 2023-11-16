@@ -4,11 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackjack</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    
+    <header class="title">
+        <h1>Blackjack</h1>
+    </header>
+
+    <div class="row mt-2">
+        <div class="col text-center">
+            <button class="btn btn-danger">New Game</button>
+            <button class="btn btn-primary">Order cards</button>
+            <button class="btn btn-primary">Stop</button>
+        </div>
+    </div>
+
+    <div class="row container">
+        <div class="col">
+            <h2>Player - <small>0</small></h2>
+        </div>
+        <div id="player-cards">
+            <img class="cards" src="assets/cards/10C.png">
+            <img class="cards" src="assets/cards/10C.png">
+            <img class="cards" src="assets/cards/10C.png">
+            <img class="cards" src="assets/cards/10C.png">
+        </div>
+    </div>
+
+    <div class="row container mt-2">
+        <div class="col">
+            <h2>Computer - <small>0</small></h2>
+        </div>
+        <div id="computer-cards">
+            <img class="cards" src="assets/cards/10C.png">
+            <img class="cards" src="assets/cards/10C.png">
+            <img class="cards" src="assets/cards/10C.png">
+            <img class="cards" src="assets/cards/10C.png">
+        </div>
+    </div>
+
     <script src="assets/js/game.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
 </body>
-</html>b
+</html>
