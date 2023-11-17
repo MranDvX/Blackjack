@@ -35,7 +35,7 @@ const takeCard = () => {
 
     const card = deck.pop();
     return card;
-}
+};
 
 const valueCard = (card) => {
     const value = card.substring(0, card.length - 1);
