@@ -33,9 +33,7 @@ const takeCard = () => {
         throw 'Deck is empty';
     }
 
-    console.log(deck);
     const card = deck.pop();
-    console.log(deck);
     return card;
 }
 
