@@ -33,8 +33,17 @@ const takeCard = () => {
         throw 'Deck is empty';
     }
 
+    console.log(deck);
     const card = deck.pop();
+    console.log(deck);
     return card;
 }
 
-takeCard();
+const valueCard = (card) => {
+    const value = card.substring(0, card.length - 1);
+    let points = 0;
+    
+    return (isNaN(value)) ? points = (value === 'A') ? 11 : 10 : points = value * 1;    
+};
+
+valueCard(takeCard());
