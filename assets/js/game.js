@@ -8,13 +8,13 @@
 let deck = [];
 const types = ['C', 'D', 'H', 'S'];
 const specials = ['A', 'J', 'Q', 'K'];
-
 let playerPoints = 0,
     computerPoints = 0;
-const pointsHTML = document.querySelectorAll('small');
 
 //HTML References
 const btnTakeCard = document.querySelector('#btnTakeCard');
+const divCardsPlayer = document.querySelector('#player-cards');
+const pointsHTML = document.querySelectorAll('small');
 
 const createDeck = () => {
     for (let i = 2; i <= 10; i++) {
@@ -54,6 +54,17 @@ const valueCard = (card) => {
 //Events
 btnTakeCard.addEventListener('click', () => {
     const card = takeCard();
+
     playerPoints += valueCard(card);
     pointsHTML[0].innerHTML = playerPoints;
+
+    divCardsPlayer.innerHTML += `<img src="assets/cards/${card}.png" class="cards">`;
+
+    if (playerPoints > 21) {
+        console.warn('You lost');
+        btnTakeCard.disabled = true;
+    } else if (playerPoints === 21) {
+        console.warn('21, great!');
+        btnTakeCard.disabled = true;
+    }
 });
