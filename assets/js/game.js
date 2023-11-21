@@ -9,6 +9,13 @@ let deck = [];
 const types = ['C', 'D', 'H', 'S'];
 const specials = ['A', 'J', 'Q', 'K'];
 
+let playerPoints = 0,
+    computerPoints = 0;
+const pointsHTML = document.querySelectorAll('small');
+
+//HTML References
+const btnTakeCard = document.querySelector('#btnTakeCard');
+
 const createDeck = () => {
     for (let i = 2; i <= 10; i++) {
         for (let type of types) {
@@ -44,4 +51,9 @@ const valueCard = (card) => {
     return (isNaN(value)) ? points = (value === 'A') ? 11 : 10 : points = value * 1;    
 };
 
-valueCard(takeCard());
+//Events
+btnTakeCard.addEventListener('click', () => {
+    const card = takeCard();
+    playerPoints += valueCard(card);
+    pointsHTML[0].innerHTML = playerPoints;
+});
