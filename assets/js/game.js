@@ -64,6 +64,18 @@ const computerShift = (minPoints, maxPoints) => {
         if( computerPoints > maxPoints )
             break;
     } while( (minPoints > computerPoints) && (minPoints <= maxPoints) );
+
+    setTimeout(() => {
+        if( computerPoints === minPoints ) {
+            alert('Draw!');
+        } else if( computerPoints > maxPoints ) {
+            alert('You won!');
+        } else if( computerPoints < minPoints ) {
+            alert('You lost!');
+        } else {
+            alert('You lost!');
+        }
+    }, 10);
 }
 
 //Events
@@ -73,18 +85,6 @@ btnHit.addEventListener('click', () => {
     playerPoints += valueCard(card);
     pointsHTML[0].innerHTML = playerPoints;
     divPlayerCards.innerHTML += `<img src="assets/cards/${card}.png" class="cards">`;
-
-    if (playerPoints > 21) {
-        console.warn('You lost');
-        btnHit.disabled = true;
-        btnStand.disabled = true;
-        computerShift(playerPoints, 21);
-    } else if (playerPoints === 21) {
-        console.warn('21, great!');
-        btnHit.disabled = true;
-        btnStand.disabled = true;
-        computerShift(playerPoints, 21);
-    }
 });
 
 btnStand.addEventListener('click', () => {
