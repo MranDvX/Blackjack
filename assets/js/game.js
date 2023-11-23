@@ -13,6 +13,7 @@ let playerPoints = 0,
 
 //HTML References
 const btnHit = document.querySelector('#btnHit');
+const btnStand = document.querySelector('#btnStand');
 const divPlayerCards = document.querySelector('#player-cards');
 const divComputerCards = document.querySelector('#computer-cards');
 const pointsHTML = document.querySelectorAll('small');
@@ -76,10 +77,18 @@ btnHit.addEventListener('click', () => {
     if (playerPoints > 21) {
         console.warn('You lost');
         btnHit.disabled = true;
+        btnStand.disabled = true;
         computerShift(playerPoints, 21);
     } else if (playerPoints === 21) {
         console.warn('21, great!');
         btnHit.disabled = true;
+        btnStand.disabled = true;
         computerShift(playerPoints, 21);
     }
+});
+
+btnStand.addEventListener('click', () => {
+    btnHit.disabled = true;
+    btnStand.disabled = true;
+    computerShift(playerPoints, 21);
 });
