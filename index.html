@@ -9,20 +9,15 @@
 </head>
 <body>
     <header class="title">
-        <h1>Blackjack</h1>
+        <h1>./blackjack</h1>
     </header>
-
-    <div class="row mt-2">
-        <div id="buttons" class="col text-center">
-            <button id="btnNew" class="btn btn-danger">New Game</button>
-            <button id="btnTakeCard" class="btn btn-primary">Take cards</button>
-            <button id="btnStop" class="btn btn-primary">Stop</button>
-        </div>
-    </div>
 
     <div class="row container">
         <div class="col">
-            <h2>Player - <small>0</small></h2>
+            <h2>player_ <small>?</small></h2>
+        </div>
+        <div class="col">
+            <p>SCORE: </s> <small>?</small></h2>
         </div>
         <div id="player-cards">
         </div>
@@ -30,13 +25,24 @@
 
     <div class="row container mt-2">
         <div class="col">
-            <h2>Computer - <small>0</small></h2>
+            <h2>computer_ <small>?</small></h2>
+        </div>
+        <div class="col">
+            <p>SCORE: </s> <small>?</small></h2>
         </div>
         <div id="computer-cards">
             <img class="cards" src="assets/cards/10C.png">
             <img class="cards" src="assets/cards/10C.png">
             <img class="cards" src="assets/cards/10C.png">
             <img class="cards" src="assets/cards/10C.png">
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div id="buttons" class="col text-center">
+            <button id="btnNew" class="btn btn-outline-light">New Game</button>
+            <button id="btnTakeCard" class="btn btn-outline-light">./hit</button>
+            <button id="btnStop" class="btn btn-outline-light">./stand</button>
         </div>
     </div>
 
