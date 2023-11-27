@@ -16,7 +16,7 @@ const btnHit = document.querySelector('#btnHit');
 const btnStand = document.querySelector('#btnStand');
 const divPlayerCards = document.querySelector('#player-cards');
 const divComputerCards = document.querySelector('#computer-cards');
-const pointsHTML = document.querySelectorAll('small');
+const pointsHTML = document.querySelectorAll('span');
 
 const createDeck = () => {
     for (let i = 2; i <= 10; i++) {
@@ -75,7 +75,7 @@ const computerShift = (minPoints, maxPoints) => {
         } else {
             alert('You lost!');
         }
-    }, 10);
+    }, 100);
 }
 
 //Events
@@ -85,6 +85,16 @@ btnHit.addEventListener('click', () => {
     playerPoints += valueCard(card);
     pointsHTML[0].innerHTML = playerPoints;
     divPlayerCards.innerHTML += `<img src="assets/cards/${card}.png" class="cards">`;
+
+    if (playerPoints > 21) {
+        btnHit.disabled = true;
+        btnStand.disabled = true;
+        computerShift(playerPoints, 21);
+    } else if (playerPoints === 21) {
+        btnHit.disabled = true;
+        btnStand.disabled = true;
+        computerShift(playerPoints, 21);
+    }
 });
 
 btnStand.addEventListener('click', () => {
