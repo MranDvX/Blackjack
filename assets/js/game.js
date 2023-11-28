@@ -12,8 +12,10 @@ let playerPoints = 0,
     computerPoints = 0;
 
 //HTML References
+const btnNew = document.querySelector('#btnNew');
 const btnHit = document.querySelector('#btnHit');
 const btnStand = document.querySelector('#btnStand');
+
 const divPlayerCards = document.querySelector('#player-cards');
 const divComputerCards = document.querySelector('#computer-cards');
 const pointsHTML = document.querySelectorAll('span');
@@ -90,7 +92,26 @@ btnHit.addEventListener('click', () => {
 });
 
 btnStand.addEventListener('click', () => {
+    if(playerPoints === 0){
+        alert('debes jugar primero');
+    }else{
     btnHit.disabled = true;
     btnStand.disabled = true;
     computerShift(playerPoints, 21);
+    }
 });
+
+btnNew.addEventListener('click', () => {
+    deck = [];
+    computerPoints = 0;
+    playerPoints = 0;
+
+    createDeck();
+    pointsHTML[0].innerHTML = playerPoints;
+    pointsHTML[1].innerHTML = computerPoints;
+    divPlayerCards.innerHTML = `<img class="cards">`;
+    divComputerCards.innerHTML = `<img class="cards">`;
+
+    btnHit.disabled = false;
+    btnStand.disabled = false;
+})
