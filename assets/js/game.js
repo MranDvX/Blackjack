@@ -66,15 +66,7 @@ const computerShift = (minPoints, maxPoints) => {
     } while( (minPoints > computerPoints) && (minPoints <= maxPoints) );
 
     setTimeout(() => {
-        if( computerPoints === minPoints ) {
-            alert('Draw!');
-        } else if( computerPoints > maxPoints ) {
-            alert('You won!');
-        } else if( computerPoints < minPoints ) {
-            alert('You lost!');
-        } else {
-            alert('You lost!');
-        }
+        (computerPoints === minPoints) ? alert('Draw!') : (computerPoints > maxPoints) ? alert('You won!') : alert('You lost!');
     }, 100);
 }
 
