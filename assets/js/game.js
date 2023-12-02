@@ -23,7 +23,13 @@
           divComputerCards = document.querySelector('#computer-cards'),
           pointsHTML = document.querySelectorAll('span');
 
+    const initGame = () => {
+        deck = createDeck();
+    }
+
     const createDeck = () => {
+        deck = [];
+
         for (let i = 2; i <= 10; i++) {
             for (let type of types) {
                 deck.push(i + type);
@@ -36,19 +42,15 @@
             }
         }
 
-        deck = _.shuffle(deck);
-        return deck;
+        return _.shuffle(deck);
     };
-
-    createDeck();
 
     const hit = () => {
         if (deck.length === 0) {
             throw 'Deck is empty';
         }
 
-        const card = deck.pop();
-        return card;
+        return deck.pop();
     };
 
     const valueCard = (card) => {
