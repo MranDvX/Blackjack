@@ -7,10 +7,10 @@
 (() => {
     'use strict';
 
-
     let deck = [];
     const types = ['C', 'D', 'H', 'S'],
           specials = ['A', 'J', 'Q', 'K'];
+
     let playerPoints = 0,
         computerPoints = 0;
 
@@ -24,7 +24,7 @@
           pointsHTML = document.querySelectorAll('span');
 
     const initGame = () => {
-        deck = createDeck();
+        createDeck();
     }
 
     const createDeck = () => {
@@ -107,11 +107,11 @@
     });
 
     btnNew.addEventListener('click', () => {
-        deck = [];
+        initGame();
+
         computerPoints = 0;
         playerPoints = 0;
 
-        createDeck();
         pointsHTML[0].innerHTML = playerPoints;
         pointsHTML[1].innerHTML = computerPoints;
         divPlayerCards.innerHTML = `<img class="cards">`;
