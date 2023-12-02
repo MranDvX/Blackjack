@@ -7,20 +7,21 @@
 (() => {
     'use strict';
 
+
     let deck = [];
-    const types = ['C', 'D', 'H', 'S'];
-    const specials = ['A', 'J', 'Q', 'K'];
+    const types = ['C', 'D', 'H', 'S'],
+          specials = ['A', 'J', 'Q', 'K'];
     let playerPoints = 0,
         computerPoints = 0;
 
     //HTML References
-    const btnNew = document.querySelector('#btnNew');
-    const btnHit = document.querySelector('#btnHit');
-    const btnStand = document.querySelector('#btnStand');
+    const btnNew = document.querySelector('#btnNew'),
+          btnHit = document.querySelector('#btnHit'),
+          btnStand = document.querySelector('#btnStand');
 
-    const divPlayerCards = document.querySelector('#player-cards');
-    const divComputerCards = document.querySelector('#computer-cards');
-    const pointsHTML = document.querySelectorAll('span');
+    const divPlayerCards = document.querySelector('#player-cards'),
+          divComputerCards = document.querySelector('#computer-cards'),
+          pointsHTML = document.querySelectorAll('span');
 
     const createDeck = () => {
         for (let i = 2; i <= 10; i++) {
