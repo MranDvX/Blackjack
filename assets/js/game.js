@@ -20,8 +20,7 @@
           btnHit = document.querySelector('#btnHit'),
           btnStand = document.querySelector('#btnStand');
 
-    const divPlayerCards = document.querySelector('#player-cards'),
-          divComputerCards = document.querySelector('#computer-cards'),
+    const divPlayerCards = document.querySelectorAll('.playerCards'),
           pointsHTML = document.querySelectorAll('span');
 
     const initGame = (totalPlayers = 2) => {
@@ -69,14 +68,24 @@
     const acumulatePoints = (turn, card) => {
         playerPoints[turn] = playerPoints[turn] + valueCard(card);
         pointsHTML[turn].innerHTML = playerPoints[turn];
+        return playerPoints[turn];
     }
 
+    const createCard = (card, turn) => {
+        const imgCard = document.createElement('img');
+        imgCard.src = `assets/cards/${card}.png`;
+        imgCard.classList.add('cards');
+        divPlayerCards[turn].append(imgCard);
+    }
+    
     const computerShift = (minPoints, maxPoints) => {
+        let computerPoints = 0;
         do {
             const card = hit();
-            acumulatePoints(playerPoints.length - 1, card);
+            computerPoints = acumulatePoints(playerPoints.length - 1, card);
             
-            divComputerCards.innerHTML += `<img src="assets/cards/${card}.png" class="cards">`;
+            createCard(card, playerPoints.length - 1);
+
             if( computerPoints > maxPoints )
                 break;
         } while( (minPoints > computerPoints) && (minPoints <= maxPoints) );
@@ -89,10 +98,9 @@
     //Events
     btnHit.addEventListener('click', () => {
         const card = hit();
+        const playerPoints = acumulatePoints(0, card);
 
-        playerPoints += valueCard(card);
-        pointsHTML[0].innerHTML = playerPoints;
-        divPlayerCards.innerHTML += `<img src="assets/cards/${card}.png" class="cards">`;
+        createCard(card, 0);
 
         if (playerPoints > 21) {
             btnHit.disabled = true;
@@ -117,14 +125,5 @@
 
     btnNew.addEventListener('click', () => {
         initGame();
-
-        pointsHTML[0].innerHTML = 0;
-        pointsHTML[1].innerHTML = 0;
-
-        divPlayerCards.innerHTML = '';
-        divComputerCards.innerHTML = '';
-
-        btnHit.disabled = false;
-        btnStand.disabled = false;
     });
 })();
