@@ -10,9 +10,10 @@
     let deck = [];
     const types = ['C', 'D', 'H', 'S'],
           specials = ['A', 'J', 'Q', 'K'];
-
-    let playerPoints = 0,
-        computerPoints = 0;
+          
+    // let playerPoints = 0,
+    //     computerPoints = 0;
+    let playerPoints = [];
 
     //HTML References
     const btnNew = document.querySelector('#btnNew'),
@@ -23,9 +24,13 @@
           divComputerCards = document.querySelector('#computer-cards'),
           pointsHTML = document.querySelectorAll('span');
 
-    const initGame = () => {
-        createDeck();
-    }
+    const initGame = (totalPlayers = 2) => {
+        deck = createDeck();
+        for (let i = 0; i < totalPlayers; i++) {
+            playerPoints.push(0);
+        }
+        console.log({playerPoints});
+    };
 
     const createDeck = () => {
         deck = [];
@@ -60,13 +65,17 @@
         return (isNaN(value)) ? points = (value === 'A') ? 11 : 10 : points = value * 1;    
     };
 
-    const computerShift = (minPoints, maxPoints) => {
 
+    const acumulatePoints = (turn, card) => {
+        playerPoints[turn] = playerPoints[turn] + valueCard(card);
+        pointsHTML[turn].innerHTML = playerPoints[turn];
+    }
+
+    const computerShift = (minPoints, maxPoints) => {
         do {
             const card = hit();
-
-            computerPoints += valueCard(card);
-            pointsHTML[1].innerHTML = computerPoints;
+            acumulatePoints(playerPoints.length - 1, card);
+            
             divComputerCards.innerHTML += `<img src="assets/cards/${card}.png" class="cards">`;
             if( computerPoints > maxPoints )
                 break;
@@ -109,13 +118,11 @@
     btnNew.addEventListener('click', () => {
         initGame();
 
-        computerPoints = 0;
-        playerPoints = 0;
+        pointsHTML[0].innerHTML = 0;
+        pointsHTML[1].innerHTML = 0;
 
-        pointsHTML[0].innerHTML = playerPoints;
-        pointsHTML[1].innerHTML = computerPoints;
-        divPlayerCards.innerHTML = `<img class="cards">`;
-        divComputerCards.innerHTML = `<img class="cards">`;
+        divPlayerCards.innerHTML = '';
+        divComputerCards.innerHTML = '';
 
         btnHit.disabled = false;
         btnStand.disabled = false;
