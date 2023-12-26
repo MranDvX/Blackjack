@@ -77,22 +77,27 @@
         imgCard.classList.add('cards');
         divPlayerCards[turn].append(imgCard);
     }
+
+    const determineWinner = () => {
+        const [minPoints, computerPoints] = playerPoints;
+
+        setTimeout(() => {
+            (computerPoints === minPoints) ? alert('Draw!') : (21 < computerPoints) ? alert('You won!') : alert('You lost!');
+        }, 100);
+    };
     
     const computerShift = (minPoints, maxPoints) => {
         let computerPoints = 0;
+
         do {
             const card = hit();
+
             computerPoints = acumulatePoints(playerPoints.length - 1, card);
-            
             createCard(card, playerPoints.length - 1);
 
-            if( computerPoints > maxPoints )
-                break;
         } while( (minPoints > computerPoints) && (minPoints <= maxPoints) );
 
-        setTimeout(() => {
-            (computerPoints === minPoints) ? alert('Draw!') : (computerPoints > maxPoints) ? alert('You won!') : alert('You lost!');
-        }, 100);
+        determineWinner();
     }
 
     //Events
@@ -114,6 +119,7 @@
     });
 
     btnStand.addEventListener('click', () => {
+        console.log('Stand', playerPoints);
         if(playerPoints === 0){
             alert('debes jugar primero');
         }else{
