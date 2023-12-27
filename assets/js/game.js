@@ -25,10 +25,16 @@
 
     const initGame = (totalPlayers = 2) => {
         deck = createDeck();
+        playerPoints = [];
+
         for (let i = 0; i < totalPlayers; i++) {
             playerPoints.push(0);
         }
-        console.log({playerPoints});
+        pointsHTML.forEach(element => element.innerHTML = 0);
+        divPlayerCards.forEach(element => element.innerHTML = '');
+
+        btnHit.disabled = false;
+        btnStand.disabled = false;
     };
 
     const createDeck = () => {
