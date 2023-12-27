@@ -33,6 +33,9 @@
         pointsHTML.forEach(element => element.innerHTML = 0);
         divPlayerCards.forEach(element => element.innerHTML = '');
 
+        btnHit.hidden = false;
+        btnStand.hidden = false;
+
         btnHit.disabled = false;
         btnStand.disabled = false;
     };
