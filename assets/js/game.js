@@ -11,8 +11,6 @@ const myModule = (() => {
     const types = ['C', 'D', 'H', 'S'],
           specials = ['A', 'J', 'Q', 'K'];
           
-    // let playerPoints = 0,
-    //     computerPoints = 0;
     let playerPoints = [];
 
     //HTML References
