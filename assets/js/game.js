@@ -4,7 +4,7 @@
  * 2H = Two of Hearts
  * 2S = Two of Spades
  */
-(() => {
+const myModule = (() => {
     'use strict';
 
     let deck = [];
@@ -128,17 +128,17 @@
     });
 
     btnStand.addEventListener('click', () => {
-        console.log('Stand', playerPoints);
-        if(playerPoints === 0){
-            alert('debes jugar primero');
-        }else{
+        
         btnHit.disabled = true;
         btnStand.disabled = true;
-        computerShift(playerPoints, 21);
-        }
+        computerShift(playerPoints[0], 21);
     });
 
     btnNew.addEventListener('click', () => {
         initGame();
     });
+
+    return {
+        newGame: initGame
+    }
 })();
