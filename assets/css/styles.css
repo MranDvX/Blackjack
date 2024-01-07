@@ -1,11 +1,12 @@
-html, body{
+html,
+body {
     margin: 0px;
     background-color: black;
     color: white;
     font-family: 'Helvetica Roman', sans-serif;
 }
 
-.title{
+.title {
     text-align: center;
     /* background-color: black; */
     color: white;
@@ -13,7 +14,7 @@ html, body{
     font-size: 25px;
 }
 
-.cards{
+.cards {
     position: relative;
     width: 150px;
     left: 100px;
@@ -21,6 +22,7 @@ html, body{
 
 }
 
-#computer-cards, #player-cards{
+#computer-cards,
+#player-cards {
     height: 240px;
 }
