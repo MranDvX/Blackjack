@@ -1,9 +1,11 @@
 html,
 body {
-    margin: 0px;
+    margin: 0 auto;
     background-color: black;
     color: white;
     font-family: 'Helvetica Roman', sans-serif;
+    max-width: 1200px;
+    padding: 0 20px;
 }
 
 .title {
