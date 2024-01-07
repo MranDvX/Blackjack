@@ -24,31 +24,31 @@ h1 {
 
     0%,
     100% {
-        filter: drop-shadow(0 0 5px #FFC0CB);
+        filter: drop-shadow(0 0 5px #FF5E5E);
     }
 
     14% {
-        filter: drop-shadow(0 0 5px #FFDAB9);
+        filter: drop-shadow(0 0 5px #FFA65E);
     }
 
     28% {
-        filter: drop-shadow(0 0 5px #FFFACD);
+        filter: drop-shadow(0 0 5px #FFD65E);
     }
 
     42% {
-        filter: drop-shadow(0 0 5px #98FB98);
+        filter: drop-shadow(0 0 5px #5EFF5E);
     }
 
     57% {
-        filter: drop-shadow(0 0 5px #ADD8E6);
+        filter: drop-shadow(0 0 5px #5E5EFF);
     }
 
     71% {
-        filter: drop-shadow(0 0 5px #B0C4DE);
+        filter: drop-shadow(0 0 5px #5EA6FF);
     }
 
     85% {
-        filter: drop-shadow(0 0 5px #E6E6FA);
+        filter: drop-shadow(0 0 5px #B55EFF);
     }
 }
 
