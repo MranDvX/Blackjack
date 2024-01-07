@@ -10,49 +10,46 @@ body {
 
 .title {
     text-align: center;
+    /* background-color: black; */
     color: #FFFFFF;
     padding: 20px;
     font-size: 25px;
 }
 
 h1 {
-    background-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
     animation: rainbow-animation 3s ease-in-out infinite;
-    text-shadow: 0 0 10px #000000;
+    transition: filter 0.3s linear;
 }
 
 @keyframes rainbow-animation {
 
     0%,
     100% {
-        filter: drop-shadow(0 0 10px red);
+        filter: drop-shadow(0 0 5px red);
     }
 
     14% {
-        filter: drop-shadow(0 0 10px orange);
+        filter: drop-shadow(0 0 5px orange);
     }
 
     28% {
-        filter: drop-shadow(0 0 10px yellow);
+        filter: drop-shadow(0 0 5px yellow);
     }
 
     42% {
-        filter: drop-shadow(0 0 10px green);
+        filter: drop-shadow(0 0 5px green);
     }
 
     57% {
-        filter: drop-shadow(0 0 10px blue);
+        filter: drop-shadow(0 0 5px blue);
     }
 
     71% {
-        filter: drop-shadow(0 0 10px indigo);
+        filter: drop-shadow(0 0 5px indigo);
     }
 
     85% {
-        filter: drop-shadow(0 0 10px violet);
+        filter: drop-shadow(0 0 5px violet);
     }
 }
 
