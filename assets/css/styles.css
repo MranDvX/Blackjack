@@ -10,7 +10,6 @@ body {
 
 .title {
     text-align: center;
-    /* background-color: black; */
     color: #FFFFFF;
     padding: 20px;
     font-size: 25px;
@@ -25,31 +24,31 @@ h1 {
 
     0%,
     100% {
-        filter: drop-shadow(0 0 5px red);
+        filter: drop-shadow(0 0 5px #FFC0CB);
     }
 
     14% {
-        filter: drop-shadow(0 0 5px orange);
+        filter: drop-shadow(0 0 5px #FFDAB9);
     }
 
     28% {
-        filter: drop-shadow(0 0 5px yellow);
+        filter: drop-shadow(0 0 5px #FFFACD);
     }
 
     42% {
-        filter: drop-shadow(0 0 5px green);
+        filter: drop-shadow(0 0 5px #98FB98);
     }
 
     57% {
-        filter: drop-shadow(0 0 5px blue);
+        filter: drop-shadow(0 0 5px #ADD8E6);
     }
 
     71% {
-        filter: drop-shadow(0 0 5px indigo);
+        filter: drop-shadow(0 0 5px #B0C4DE);
     }
 
     85% {
-        filter: drop-shadow(0 0 5px violet);
+        filter: drop-shadow(0 0 5px #E6E6FA);
     }
 }
 
