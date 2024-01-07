@@ -9,17 +9,17 @@ const myModule = (() => {
 
     let deck = [];
     const types = ['C', 'D', 'H', 'S'],
-          specials = ['A', 'J', 'Q', 'K'];
-          
+        specials = ['A', 'J', 'Q', 'K'];
+
     let playerPoints = [];
 
     //HTML References
     const btnNew = document.querySelector('#btnNew'),
-          btnHit = document.querySelector('#btnHit'),
-          btnStand = document.querySelector('#btnStand');
+        btnHit = document.querySelector('#btnHit'),
+        btnStand = document.querySelector('#btnStand');
 
     const divPlayerCards = document.querySelectorAll('.playerCards'),
-          pointsHTML = document.querySelectorAll('span');
+        pointsHTML = document.querySelectorAll('span');
 
     const initGame = (totalPlayers = 2) => {
         deck = createDeck();
@@ -67,8 +67,8 @@ const myModule = (() => {
     const valueCard = (card) => {
         const value = card.substring(0, card.length - 1);
         let points = 0;
-        
-        return (isNaN(value)) ? points = (value === 'A') ? 11 : 10 : points = value * 1;    
+
+        return (isNaN(value)) ? points = (value === 'A') ? 11 : 10 : points = value * 1;
     };
 
 
@@ -92,7 +92,7 @@ const myModule = (() => {
             (computerPoints === minPoints) ? alert('Draw!') : (21 < computerPoints) ? alert('You won!') : alert('You lost!');
         }, 100);
     };
-    
+
     const computerShift = (minPoints, maxPoints) => {
         let computerPoints = 0;
 
@@ -102,7 +102,7 @@ const myModule = (() => {
             computerPoints = acumulatePoints(playerPoints.length - 1, card);
             createCard(card, playerPoints.length - 1);
 
-        } while( (minPoints > computerPoints) && (minPoints <= maxPoints) );
+        } while ((minPoints > computerPoints) && (minPoints <= maxPoints));
 
         determineWinner();
     }
@@ -126,7 +126,7 @@ const myModule = (() => {
     });
 
     btnStand.addEventListener('click', () => {
-        
+
         btnHit.disabled = true;
         btnStand.disabled = true;
         computerShift(playerPoints[0], 21);
